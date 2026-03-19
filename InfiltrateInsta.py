@@ -93,10 +93,8 @@ try:
     ig_client.load_settings("ig_session.json")
     ig_client.login(IG_USERNAME, IG_PASSWORD)
 except Exception as e:
-    ig_client = Client()
-    ig_client.login(IG_USERNAME, IG_PASSWORD)
-    ig_client.dump_settings("ig_session.json")
-
+    print("Session failed, not logging in again to avoid challenge.")
+    raise e
 
 # 3. EMBED CREATOR
 def create_media_embeds(media):
